@@ -1,0 +1,101 @@
+@import "all";
+/*產品*/
+.login_area{
+  transition: all .3s;
+  width: 940px;
+  margin: 80px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 340px;
+  background: $light_green;
+  .router{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 5px 0;
+    height: 60px;
+    line-height: 60px;
+    width: 300px;
+    text-align: center;
+    background: $white;
+    img{
+      max-width: 100px;
+      color: $green;
+      opacity: .6;
+      filter: grayscale(1);
+    }
+  }
+}
+.contain,.social{
+  width: 390px;
+  flex:1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  h1{
+    color: $green;
+    font-weight: normal;
+    font-size: 1.5rem;
+    margin: 30px 0;
+  }
+}
+.contain{
+  justify-content: space-between;
+  i{
+    padding: 20px 10px;
+  }
+  input{
+    height: 60px;
+    width: 80%;
+    border: none;
+    outline: none;
+  }
+  .checkbox{
+    width: 300px;
+    padding: 20px 0;
+    input{
+      width: auto;
+      height: auto;
+    }
+  }
+  .login{
+    cursor: pointer;
+    text-align: center;
+    padding: 15px 0;
+    font-weight: bold;
+    font-size: 1.5rem;
+    width: 100%;
+  }
+  .mobile_social{
+    display: none;
+    background: $light_green;
+    justify-content: center;
+    align-items: center;
+    img{
+      margin: 0 10px;
+      width: 25%;
+    }
+  }
+}
+.active{
+  height: 380px;
+  background: $green;
+  .checkbox{
+    color:$light_green;
+  }
+  h1{
+    color: $light_green;
+    font-size: 2rem;
+  }
+  .login{
+    color: $green;
+    background: $yellow;
+  }
+  .router{
+    img{
+      opacity: 1;
+      filter:none;
+    }
+  }
+}

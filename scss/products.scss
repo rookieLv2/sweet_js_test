@@ -1,0 +1,112 @@
+@import "all";
+
+/*產品*/
+.product_contain{
+  width: 940px;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+}
+.list{
+  flex:1;
+  font-size: 1rem;
+  text-align: center;
+  ul{
+    margin-right: 10px;
+    li{
+      padding: 15px 100px;
+      &:first-child{
+        color:$white;
+        background: $green;
+      }
+      &:not(:first-child):hover{
+        background: $light_green;
+      }
+    }
+  }
+}
+.products_box{
+  flex:2;
+}
+.items{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  .item{
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    .img_box{
+      width: 300px;
+      height: 300px;
+      overflow: hidden;
+      img{
+        transition: all .3s;
+        width: 100%;
+      }
+      &:hover{
+        img{
+          transform: scale(1.1);
+        }
+      }
+    }
+    .cate{
+      font-size: 1rem;
+      position: absolute;
+      writing-mode: vertical-lr;
+      top: 0;
+      left: 0;
+      letter-spacing: 3px;
+      padding: 8px;
+      background: $green;
+      color: $white;
+      margin-left: 15px;
+    }
+    .item_info{
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      font-size: 1.25rem;
+    }
+    .addcart{
+      cursor: pointer;
+      background: $light_green;
+      font-size: 1.2rem;
+      text-align: center;
+      padding: 10px 90px;
+      transition: all .3s;
+      &:hover{
+        color: $white;
+        background: $green;
+      }
+    }
+  }
+}
+.navigation{
+  margin: 20px 5px;
+  ul{
+    display: flex;
+    justify-content: flex-end;
+  }
+  li{
+    cursor: pointer;
+    border: 1px solid $light_green;
+    padding: 15px 20px;
+    margin: 0 1px;
+    &:hover{
+      background: $light_green;
+    }
+    i{
+      font-size: 1rem;
+    }
+  }
+  .active{
+    color: $light_green;
+    background: $green;
+    &:hover{
+      background: $green;
+    }
+  }
+}

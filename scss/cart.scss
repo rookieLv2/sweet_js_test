@@ -1,0 +1,100 @@
+@import "all";
+
+.cart {
+  width: 940px;
+  margin: 20px auto 60px auto;
+  display: flex;
+  align-items: flex-start;
+}
+.lists {
+  flex: 2;
+  margin-right: 20px;
+  .title{
+    text-align: center;
+    color: $green;
+    background: $light_green;
+    font-size: 1.5rem;
+    padding: 15px 0;
+    margin-bottom: 20px;
+  }
+  table {
+    width: 100%;
+    border-spacing:20px;
+    border-collapse:collapse;//摺疊邊框
+    tr{
+      height: 130px;
+      i{
+        cursor: pointer;
+      }
+    }
+    td {
+      text-align: center;
+      padding: 0 10px;
+      img {
+        width: 110px;
+      }
+      &:first-child{
+        text-align: left;
+        padding: 0;
+      }
+    }
+    .item_title{
+      font-size: 1.25rem;
+      .price{
+        font-size: 1rem;
+      }
+    }
+    .select {
+      * {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+      }
+      input{
+        text-align: center;
+        outline: none;
+        border: 1px solid $light_green;
+      }
+      input[type=number]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+      }
+      span {
+        cursor: pointer;
+        line-height: 50px;
+        text-align: center;
+        border: 1px solid $light_green;
+      }
+    }
+  }
+}
+.order_info {
+  flex: 1;
+  color: $light_green;
+  background: $green;
+  h2{
+    width: 80%;
+    padding: 15px 0;
+    text-align: center;
+    font-weight: normal;
+    margin: 15px auto;
+    border-bottom: 1px solid $light_green;
+  }
+  .price,.fee,.total{
+    display: flex;
+    padding: 10px 15px;
+    letter-spacing: 2px;
+    justify-content: space-between;
+  }
+  .total{
+    font-weight: bold;
+    font-size: 1.25rem;
+  }
+  .checkout{
+    cursor: pointer;
+    padding: 15px;
+    background: $yellow;
+    text-align: center;
+    color:$green;
+    font-size: 1.5rem;
+  }
+}
