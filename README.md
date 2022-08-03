@@ -1,3 +1,6 @@
+# source: https://github.com/hsiangfeng/Sweetaste 
+我要變成js高手
+
 # Sweetaste (手刻CSS)
 > 此為手刻版甜點電商。
 ![](https://i.imgur.com/zLvcvbp.png)
