@@ -1,7 +1,8 @@
 // 取得元素
 const icon_parent=document.querySelectorAll(".select")
-let add_icon = icon_parent[0].children[2]
-let minus_icon = icon_parent[0].children[0]
+const price=document.querySelectorAll(".total_price")
+// let add_icon = icon_parent[0].children[2]
+// let minus_icon = icon_parent[0].children[0]
 
 // 新增事件
 function add_number(event){
@@ -12,8 +13,12 @@ function add_number(event){
         return
     } 
     parsed++
+
+    if(parsed<0)
+        parsed = 0
     
     text.value = parsed
+    price[0].innerText = 450 * text.value
 }
 
 // 使用fuction寫法
@@ -36,7 +41,11 @@ for(var i=0; i<icon_parent.length; i++){
             return
         } 
         parsed--
+
+        if(parsed<0)
+            parsed = 0
         
         text.value = parsed
+        price[0].innerText = 450 * text.value
     })    
 } 
