@@ -2,7 +2,9 @@
 const icon_parent = document.querySelectorAll(".select")
 const price = document.querySelectorAll(".total_price")
 const text_number = document.querySelectorAll("input")
-const order_cash= document.querySelectorAll(".order_info")
+const order_cash = document.querySelectorAll(".order_info")
+const total = document.querySelector(".total")
+const fee = document.querySelector(".fee")
 // let add_icon = icon_parent[0].children[2]
 // let minus_icon = icon_parent[0].children[0]
 
@@ -21,20 +23,21 @@ function add_number(event){
         parsed = 0
     
     text.value = parsed
-    test.parentNode.parentNode.children[3].innerText = "NT$"+450 * text.value
+    // 要改的是td下的p標籤 於是再加上children[0]
+    test.parentNode.parentNode.children[3].children[0].innerText = "NT$"+450 * text.value
     
 }
 
-// 使用fuction寫法
-for(var i=0; i<icon_parent.length; i++){
+// 加號鈕被按下
+for(var i=0; i<icon_parent.length; i++){  // 使用fuction寫法 
     icon_parent[i].children[2].addEventListener('click', function (event) {
         add_number(event)
+        temp()
     })    
 } 
 
-// 整個寫在裡面
-for(var i=0; i<icon_parent.length; i++){
-    
+// 減號鈕被按下
+for(var i=0; i<icon_parent.length; i++){ // 整個寫在裡面
     // 用target 抓到被點的人(i)
     icon_parent[i].children[0].addEventListener('click', function (event) {
         let test = event.target
@@ -50,39 +53,49 @@ for(var i=0; i<icon_parent.length; i++){
             parsed = 0
         
         text.value = parsed
-        test.parentNode.parentNode.children[3].innerText = "NT$"+450 * text.value
+        // 要改的是td下的p標籤 於是再加上children[0]
+        test.parentNode.parentNode.children[3].children[0].innerText = "NT$"+450 * text.value
+        temp()
     })    
 } 
 
+// input輸入event
 function updateValue(element) {
     //要改的是td下的p標籤 於是再加上children[0]
     // console.log(element)   ```    這是td標籤           ```
     // console.log(element.parentNode.parentNode.children[3].children[0])
     element.parentNode.parentNode.children[3].children[0].innerText = "NT$"+450 * element.value
-    if(element.value < 0)
+    if(element.value < 0){
         element.parentNode.parentNode.children[3].children[0].innerText = "NT$"+0
+        element.value = 0
+    }    
 }
 
 text_number.forEach(element => {
     element.addEventListener('input', event =>{
         updateValue(event.target)
-        // temp(element)
+        temp()
     })
 })
-```
+
 //todo input有變動時 把三個價格加起來 
-function temp(element){
+function temp(){
     console.log('plz')
     let test_price = 0
     price.forEach(tp => {
         // 抓到每個元素的數值
         console.log(tp.children[0])
-        // console.log(element.children[0].innerText.substring(3))
-        // let parsed = parseInt(element.children[0].innerText.substring(3), 10)
-        // test_price += parsed
+        console.log(tp.children[0].innerText.substring(3))
+        let parsed = parseInt(tp.children[0].innerText.substring(3), 10)
+        test_price += parsed
     })
-    console.log(test_price)
-    order_cash[0].children[1].children[1].innerText = test_price
+    // 小計更新
+    order_cash[0].children[1].children[1].innerText = 'NT$'+ test_price
+
+    //處理字串NT$
+    let parsed = parseInt(fee.children[1].innerText.substring(3), 10)
+    // 總計更新 
+    total.children[1].innerText = 'NT$'+ (test_price + parsed)
 }
 
 // price.forEach(element => {
@@ -105,4 +118,3 @@ function temp(element){
     
 //     })
 // }
-```
