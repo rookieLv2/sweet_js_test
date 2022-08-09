@@ -2,7 +2,7 @@
 const icon_parent = document.querySelectorAll(".select")
 const price = document.querySelectorAll(".total_price")
 const text_number = document.querySelectorAll("input")
-const order_cash= document.querySelectorAll(".price")
+const order_cash= document.querySelectorAll(".order_info")
 // let add_icon = icon_parent[0].children[2]
 // let minus_icon = icon_parent[0].children[0]
 
@@ -55,18 +55,45 @@ for(var i=0; i<icon_parent.length; i++){
 } 
 
 function updateValue(element) {
-    element.parentNode.parentNode.children[3].innerText = "NT$"+450 * element.value
+    //要改的是td下的p標籤 於是再加上children[0]
+    // console.log(element)   ```    這是td標籤           ```
+    // console.log(element.parentNode.parentNode.children[3].children[0])
+    element.parentNode.parentNode.children[3].children[0].innerText = "NT$"+450 * element.value
     if(element.value < 0)
-        element.parentNode.parentNode.children[3].innerText = "NT$"+0
+        element.parentNode.parentNode.children[3].children[0].innerText = "NT$"+0
 }
 
 text_number.forEach(element => {
     element.addEventListener('input', event =>{
         updateValue(event.target)
+        // temp(element)
     })
 })
+```
+//todo input有變動時 把三個價格加起來 
+function temp(element){
+    console.log('plz')
+    let test_price = 0
+    price.forEach(tp => {
+        // 抓到每個元素的數值
+        console.log(tp.children[0])
+        // console.log(element.children[0].innerText.substring(3))
+        // let parsed = parseInt(element.children[0].innerText.substring(3), 10)
+        // test_price += parsed
+    })
+    console.log(test_price)
+    order_cash[0].children[1].children[1].innerText = test_price
+}
 
-console.log(order_cash)
+// price.forEach(element => {
+//     element.addEventListener('input', event =>{
+//         all_price(event.target)
+//     })
+// })
+
+
+
+
 
 // 60-64行 == 66行
 // text_number.forEach(element => element.addEventListener('input', event => updateValue(event.target)))
@@ -78,3 +105,4 @@ console.log(order_cash)
     
 //     })
 // }
+```
