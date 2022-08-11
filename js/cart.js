@@ -5,10 +5,35 @@ const text_number = document.querySelectorAll("input")
 const order_cash = document.querySelectorAll(".order_info")
 const total = document.querySelector(".total")
 const fee = document.querySelector(".fee")
+
+const del_btn = document.querySelectorAll(".delete") 
+const del_data = document.querySelector("table")
 // let add_icon = icon_parent[0].children[2]
 // let minus_icon = icon_parent[0].children[0]
 
 // 新增事件
+for(var i=0; i<del_btn.length; i++){
+    del_btn[i].addEventListener('click', function (event) {
+        for(var i=0; i<del_data.children[0].children.length; i++){
+            del_data.children[0].children[i].remove()
+        }
+    })    
+}
+
+// function del_iteam(){  
+//     for(var i=0; i<del_data.children[0].children.length; i++){
+//         del_data.children[0].children[i].remove()
+//     }
+// }
+
+// for(var i=0; i<del_btn.length; i++){  // 使用fuction寫法 
+//     del_btn[i].addEventListener('click', function (event) {
+//         del_iteam()
+        
+//     })    
+// } 
+
+
 function add_number(event){
     let test = event.target
     let text = event.target.parentNode.children[1]
@@ -78,6 +103,24 @@ text_number.forEach(element => {
     })
 })
 
+// price.forEach(element => {
+//     element.addEventListener('input', event =>{
+//         all_price(event.target)
+//     })
+// })
+
+// 60-64行 == 66行
+// text_number.forEach(element => element.addEventListener('input', event => updateValue(event.target)))
+
+// 60-64行 == 66行 == 68-74行
+// for(var i=0; i<text_number.length; i++){
+//     text_number[i].addEventListener('input', function (event){
+//         updateValue(event.target)
+    
+//     })
+// }
+
+
 //todo input有變動時 把三個價格加起來 
 function temp(){
     console.log('plz')
@@ -97,24 +140,3 @@ function temp(){
     // 總計更新 
     total.children[1].innerText = 'NT$'+ (test_price + parsed)
 }
-
-// price.forEach(element => {
-//     element.addEventListener('input', event =>{
-//         all_price(event.target)
-//     })
-// })
-
-
-
-
-
-// 60-64行 == 66行
-// text_number.forEach(element => element.addEventListener('input', event => updateValue(event.target)))
-
-// 60-64行 == 66行 == 68-74行
-// for(var i=0; i<text_number.length; i++){
-//     text_number[i].addEventListener('input', function (event){
-//         updateValue(event.target)
-    
-//     })
-// }
