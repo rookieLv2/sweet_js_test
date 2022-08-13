@@ -1,22 +1,20 @@
 // 取得元素
 const icon_parent = document.querySelectorAll(".select")
-const price = document.querySelectorAll(".total_price")
 const text_number = document.querySelectorAll("input")
 const order_cash = document.querySelectorAll(".order_info")
 const total = document.querySelector(".total")
 const fee = document.querySelector(".fee")
 
 const del_btn = document.querySelectorAll(".delete") 
-const del_data = document.querySelector("table")
 // let add_icon = icon_parent[0].children[2]
 // let minus_icon = icon_parent[0].children[0]
 
 // 新增事件
 for(var i=0; i<del_btn.length; i++){
     del_btn[i].addEventListener('click', function (event) {
-        for(var i=0; i<del_data.children[0].children.length; i++){
-            del_data.children[0].children[i].remove()
-        }
+            event.target.parentNode.parentNode.remove()
+            temp()
+            // del_data.children[0].children[i].remove()
     })    
 }
 
@@ -123,7 +121,8 @@ text_number.forEach(element => {
 
 //todo input有變動時 把三個價格加起來 
 function temp(){
-    console.log('plz')
+    const price = document.querySelectorAll(".total_price")
+    console.log(price)
     let test_price = 0
     price.forEach(tp => {
         // 抓到每個元素的數值
